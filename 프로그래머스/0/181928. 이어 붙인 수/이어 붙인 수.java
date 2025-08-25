@@ -3,9 +3,9 @@ class Solution {
         String odd = "";
         String even = "";
         
-        for(int i = 0 ; i < num_list.length ; i++){
-            if(num_list[i] % 2 == 1) odd += num_list[i];
-            else even += num_list[i];
+        for(int num : num_list){
+            odd  += (num % 2 == 1) ? num : "";
+            even += (num % 2 == 0) ? num : "";
         }
         
         return Integer.parseInt(odd) + Integer.parseInt(even);
