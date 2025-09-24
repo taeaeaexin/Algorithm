@@ -2,21 +2,16 @@ import java.util.*;
 
 class Solution {
     boolean solution(String s) {
-        boolean answer = true;
-        Queue<Integer> queue = new LinkedList<>();
-        
+        Stack<Character> stack = new Stack<>();
         for(int i = 0 ; i < s.length() ; i++){
-            char c = s.charAt(i);
-            
-            if(c == '('){
-                queue.add(1);
+            if(s.charAt(i) == '('){
+                stack.push('(');
             }else{
-                if(queue.isEmpty()) return false;
-                queue.poll();
+                if(stack.isEmpty()) return false;
+                stack.pop();
             }
         }
-
-        if(queue.isEmpty()) return true;
-        else return false;
+        if(stack.isEmpty()) return true;
+        return false;
     }
 }
