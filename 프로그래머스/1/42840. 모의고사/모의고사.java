@@ -2,55 +2,29 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] answers) {
+        int[] one = {1,2,3,4,5};
+        int[] two = {2,1,2,3,2,4,2,5};
+        int[] three = {3,3,1,1,2,2,4,4,5,5};
         int[] grade = new int[3];
-        
-        int idx = 1;
+        int a = 0, b = 0, c = 0;
         for(int i = 0 ; i < answers.length ; i++){
-            if(idx > 5) idx = 1;
-            if(answers[i] == idx) grade[0]++;
-            idx++;
+            if(a > one.length-1) a = 0;
+            if(b > two.length-1) b = 0;
+            if(c > three.length-1) c = 0;
+            
+            if(one[a] == answers[i]) grade[0]++;
+            if(two[b] == answers[i]) grade[1]++;
+            if(three[c] == answers[i]) grade[2]++;
+            a++;
+            b++;
+            c++;
         }
-        
-        idx = 1;
-        for(int i = 0 ; i < answers.length ; i++){
-            if(i % 2 == 0){
-                if(answers[i] == 2) grade[1]++;
-            }else{
-                if(answers[i] == idx) grade[1]++;
-                idx++;
-                if(idx > 5) idx = 1;
-                if(idx == 2) idx = 3;
-            }
-        }
-        
-        idx = 3;
-        int cnt = 0;
-        for(int i = 0 ; i < answers.length ; i++){
-            if(cnt == 2){
-                cnt = 0;
-                if(idx == 3) idx = 1;
-                else if(idx == 1) idx = 2;
-                else if(idx == 2) idx = 4;
-                else if(idx == 4) idx = 5;
-                else if(idx == 5) idx = 3;
-            }
-            if(answers[i] == idx) grade[2]++;
-            cnt++;
-        }
-        
+        int max = 0;
+        for(int n:grade) if(n > max) max = n;
         ArrayList<Integer> list = new ArrayList<>();
-        
-        int max = grade[0];
         for(int i = 0 ; i < grade.length ; i++) {
-            if(grade[i] > max) {
-                list = new ArrayList<>();
-                max = grade[i];
-                list.add(i+1);
-            } else if(grade[i] == max) {
-                list.add(i+1);
-            }
+            if(max == grade[i]) list.add(i+1);
         }
-        
-        return list.stream().sorted().mapToInt(Integer::intValue).toArray();
+        return list.stream().mapToInt(Integer::intValue).toArray();
     }
 }
