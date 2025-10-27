@@ -1,10 +1,10 @@
 # [level 0] 문자열 반복해서 출력하기 - 181950 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181950?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181950) 
 
 ### 성능 요약
 
-메모리: 75.9 MB, 시간: 219.26 ms
+메모리: 7.48 MB, 시간: 17.12 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 06월 26일 16:24:42
+2025년 10월 27일 18:56:13
 
 ### 문제 설명
 
